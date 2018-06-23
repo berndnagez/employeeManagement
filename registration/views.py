@@ -22,7 +22,6 @@ def startpage(request):
     # return render_to_response("index.html", c)
 
 def login_user(request):
-    requestcontext = RequestContext(request)
     # username = request.POST['username']
     # password = request.POST['password']
     return render(request, 'welcomepage.html')
