@@ -22,8 +22,8 @@ def startpage(request):
     # return render_to_response("index.html", c)
 
 def login_user(request):
-    # username = request.POST['username']
-    # password = request.POST['password']
+    username = request.POST.get("inputEmail")
+    password = request.POST.get("inputPassword")
     return render(request, 'welcomepage.html')
 
 
