@@ -27,8 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# URL prefix for static files.
 STATIC_URL = "/static/"
 
+# Additional locations of static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
