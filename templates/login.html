@@ -1,4 +1,4 @@
-{% extends 'base_visitor.html' %}
+{% extends 'base.html' %}
 {% block title %}Log In{% endblock %}
 {% block login_active %}active{% endblock %}
 
@@ -14,7 +14,7 @@
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
                     <form class="form-horizontal" role="form" action="{% url 'login_user'%}" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
+                        <div id="csrf_token_container">{%  csrf_token %}</div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="id_username">
                                 Username:
@@ -37,9 +37,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="panel-footer">
-                    Don't have an account? <a href="{% url 'register' %}">Click here</a> to register.
                 </div>
             </div>
         </div>
