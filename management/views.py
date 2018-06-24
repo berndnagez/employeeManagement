@@ -1,6 +1,7 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from django.template.context import RequestContext
+from management.models import Employee
+from django.forms.models import model_to_dict
 
 # Create your views here.
 
@@ -24,7 +25,8 @@ def startpage(request):
 def login_user(request):
     username = request.POST.get("inputEmail")
     password = request.POST.get("inputPassword")
-    return render(request, 'welcomepage.html')
+    allEmployee = Employee.objects.all()
+    return render(request, 'welcomepage.html', {'allEmployee' : allEmployee})
 
 
 """
