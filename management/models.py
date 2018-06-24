@@ -4,15 +4,15 @@ from django.db import models
 
 
 class Employee(models.Model):
-    firstName = models.CharField(max_length=30)
-    name = models.CharField(max_length=30)
-    birthDay = models.DateField()
-    street = models.CharField(max_length=30)
-    houseNum = models.IntegerField()
-    city = models.CharField(max_length=30, default='Hamburg')
-    postCode = models.IntegerField()
-    overtime = models.IntegerField(default='0')
-    leaveDays = models.IntegerField(default='30')
+    firstName = models.CharField(max_length=30, name='Vorname')
+    name = models.CharField(max_length=30, name='Nachname')
+    birthDay = models.DateField(name='Geburtstag')
+    street = models.CharField(max_length=30, name='Straße')
+    houseNum = models.IntegerField(name='Hausnummer')
+    city = models.CharField(max_length=30, default='Hamburg', name='Stadt')
+    postCode = models.IntegerField(name='Postleitzahl')
+    overtime = models.IntegerField(default='0', name='Überstunden')
+    leaveDays = models.IntegerField(default='30', name='Urlaub  ')
 
     def __str__(self):
         return self.name + ', ' + self.firstName + ' (ID: ' + str((self.id)) + ')'
