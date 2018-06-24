@@ -15,10 +15,5 @@ class Employee(models.Model):
     overtime = models.IntegerField(default='0', name='Überstunden')
     leaveDays = models.IntegerField(default='30', name='Urlaub')
 
-    # user, created = User.objects.get_or_create(username=name, email=email)
-    # if created:
-    #     user.set_password('default')
-    #     user.save()
-
     def __str__(self):
         return self.Nachname + ', ' + self.Vorname + ' (ID: ' + str((self.id)) + ')'
