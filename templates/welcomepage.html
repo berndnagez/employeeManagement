@@ -18,6 +18,7 @@
 </head>
 <body>
     <h3>Folgende Daten zur Ihrer Person sind erfasst:</h3>
+    <div id="csrf_token_container">{%  csrf_token %}</div>
     {% for employee in allEmployee %}
 
         <table class="table table-striped">
