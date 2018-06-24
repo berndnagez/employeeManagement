@@ -1,7 +1,6 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from management.models import Employee
-from django.forms.models import model_to_dict
 
 # Create your views here.
 

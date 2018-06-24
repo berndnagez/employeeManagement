@@ -1,14 +1,57 @@
+{%  load static %}
+{%  get_static_prefix as STATIC_PREFIX %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/style.css" />
+    <title>Mitarbeiter_In-Daten</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h2>Moin, Moin</h2>
+    <h3>Folgende Daten zur Ihrer Person sind erfasst:</h3>
     {% for employee in allEmployee %}
 
-        {{ employee.Postleitzahl }}
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                  <th>Vorname:</th>
+                    <td>{{ employee.Vorname }}</td>
+                </tr>
+                <tr>
+                  <th>Nachname:</th>
+                    <td>{{ employee.Nachname }}</td>
+                </tr>
+                <tr>
+                  <th>Geburtstag:</th>
+                    <td>{{ employee.Geburtstag }}</td>
+                </tr>
+                <tr>
+                  <th>Straße:</th>
+                    <td>{{ employee.Straße }} {{ employee.Hausnummer }}</td>
+                </tr>
+                <tr>
+                  <th>Stadt:</th>
+                    <td>{{ employee.Postleitzahl }} {{ employee.Stadt }}</td>
+                </tr>
+                <tr>
+                  <th>Anzahl Überstunden:</th>
+                    <td>{{ employee.Überstunden }}</td>
+                </tr>
+                <tr>
+                  <th>Urlaubsanspruch in Tage:</th>
+                    <td>{{ employee.Urlaub }}</td>
+                </tr>
+            </tbody>
+        </table>
 
     {%  endfor %}
 </body>
