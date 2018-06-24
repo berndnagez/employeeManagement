@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .models import Employee
 
@@ -18,4 +18,8 @@ def login_user(request):
                 return render(request, 'login.html', {'error_message': 'Your account has been disabled'})
         else:
             return render(request, 'login.html', {'error_message': 'Invalid login'})
+    return render(request, 'login.html')
+
+def logout_user(request):
+    logout(request)
     return render(request, 'login.html')
