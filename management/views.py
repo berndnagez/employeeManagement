@@ -12,8 +12,6 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                # employeeData =  Employee.objects.filter(user=request.user)
-                # employeeData = Employee.objects.filter(EMail=request.user.email)
                 allEmployee = Employee.objects.all()
                 return render(request, 'index.html', {'allEmployee': allEmployee})
             else:
