@@ -11,7 +11,7 @@ class Employee(models.Model):
     city = models.CharField(max_length=30, default='Hamburg', name='Stadt')
     postCode = models.IntegerField(name='Postleitzahl')
     overtime = models.IntegerField(default='0', name='Überstunden')
-    leaveDays = models.IntegerField(default='30', name='Urlaub  ')
+    leaveDays = models.IntegerField(default='30', name='Urlaub')
 
     def __str__(self):
-        return self.name + ', ' + self.firstName + ' (ID: ' + str((self.id)) + ')'
+        return self.Nachname + ', ' + self.Vorname + ' (ID: ' + str((self.id)) + ')'
