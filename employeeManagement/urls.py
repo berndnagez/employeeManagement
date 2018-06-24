@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from registration.views import startpage, login_user
+from management.views import startpage, login_user
 
 urlpatterns = (
     path('admin/', admin.site.urls),

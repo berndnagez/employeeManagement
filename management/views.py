@@ -39,7 +39,7 @@ def view_registration_page(request):
         c.update(csrf(request))
         c["CurrentPopulation"] = shipAPI.get_current_population()
         c["MaximumPopulation"] = shipAPI.get_maximum_population()
-        return render_to_response("registration.html", c)
+        return render_to_response("management.html", c)
 
 @LoginValidator
 def login_user(request):
