@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Employee(models.Model):
     firstName = models.CharField(max_length=30, name='Vorname')
     name = models.CharField(max_length=30, name='Nachname')
+    email = models.EmailField(max_length=254, name='EMail')
     birthDay = models.DateField(name='Geburtstag')
     street = models.CharField(max_length=30, name='Straße')
     houseNum = models.IntegerField(name='Hausnummer')
@@ -12,6 +14,11 @@ class Employee(models.Model):
     postCode = models.IntegerField(name='Postleitzahl')
     overtime = models.IntegerField(default='0', name='Überstunden')
     leaveDays = models.IntegerField(default='30', name='Urlaub')
+
+    # user, created = User.objects.get_or_create(username=name, email=email)
+    # if created:
+    #     user.set_password('default')
+    #     user.save()
 
     def __str__(self):
         return self.Nachname + ', ' + self.Vorname + ' (ID: ' + str((self.id)) + ')'

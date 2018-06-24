@@ -20,40 +20,46 @@
     <h3>Folgende Daten zur Ihrer Person sind erfasst:</h3>
     <div id="csrf_token_container">{%  csrf_token %}</div>
     {% for employee in allEmployee %}
+        {% if request.user.email == employee.EMail %}
 
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                  <th>Vorname:</th>
-                    <td>{{ employee.Vorname }}</td>
-                </tr>
-                <tr>
-                  <th>Nachname:</th>
-                    <td>{{ employee.Nachname }}</td>
-                </tr>
-                <tr>
-                  <th>Geburtstag:</th>
-                    <td>{{ employee.Geburtstag }}</td>
-                </tr>
-                <tr>
-                  <th>Straße:</th>
-                    <td>{{ employee.Straße }} {{ employee.Hausnummer }}</td>
-                </tr>
-                <tr>
-                  <th>Stadt:</th>
-                    <td>{{ employee.Postleitzahl }} {{ employee.Stadt }}</td>
-                </tr>
-                <tr>
-                  <th>Anzahl Überstunden:</th>
-                    <td>{{ employee.Überstunden }}</td>
-                </tr>
-                <tr>
-                  <th>Urlaubsanspruch in Tage:</th>
-                    <td>{{ employee.Urlaub }}</td>
-                </tr>
-            </tbody>
-        </table>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                      <th>Vorname:</th>
+                        <td>{{ employee.Vorname }}</td>
+                    </tr>
+                    <tr>
+                      <th>Nachname:</th>
+                        <td>{{ employee.Nachname }}</td>
+                    </tr>
+                    <tr>
+                      <th>E-Mail:</th>
+                        <td>{{ employee.EMail }}</td>
+                    </tr>
+                    <tr>
+                      <th>Geburtstag:</th>
+                        <td>{{ employee.Geburtstag }}</td>
+                    </tr>
+                    <tr>
+                      <th>Straße:</th>
+                        <td>{{ employee.Straße }} {{ employee.Hausnummer }}</td>
+                    </tr>
+                    <tr>
+                      <th>Stadt:</th>
+                        <td>{{ employee.Postleitzahl }} {{ employee.Stadt }}</td>
+                    </tr>
+                    <tr>
+                      <th>Anzahl Überstunden:</th>
+                        <td>{{ employee.Überstunden }}</td>
+                    </tr>
+                    <tr>
+                      <th>Urlaubsanspruch in Tage:</th>
+                        <td>{{ employee.Urlaub }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
+        {%  endif %}
     {%  endfor %}
 </body>
 </html>
