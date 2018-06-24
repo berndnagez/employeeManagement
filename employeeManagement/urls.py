@@ -22,7 +22,8 @@ from management.views import startpage, login_user, UserFormView
 urlpatterns = (
     path('admin/', admin.site.urls),
     # path('', startpage),
-    path('login_user', login_user),
-    # path('welcomepage.html', login_user),
-    path('', UserFormView.as_view(), name='register'),
+    #path('login_user', login_user),
+    path('', login_user, name='login_user'),
+    # path('index.html', login_user),
+    path('registration_form.html', UserFormView.as_view(), name='register'),
 )

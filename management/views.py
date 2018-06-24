@@ -42,21 +42,40 @@ def startpage(request):
 #         if user.is_active:
 #
 #             allEmployee = Employee.objects.all()
-#             return render(request, 'welcomepage.html', {'allEmployee' : allEmployee})
+#             return render(request, 'index.html', {'allEmployee' : allEmployee})
 #
 #         else:
 #             return render(request, 'startpage.html')
 
 
-def login_user(request):
-    allEmployee = Employee.objects.all()
-    return render(request, 'welcomepage.html', {'allEmployee' : allEmployee})
+# def login_user(request):
+#     allEmployee = Employee.objects.all()
+#     return render(request, 'index.html', {'allEmployee' : allEmployee})
 
 # class Login_user(View):
 #
 #     def render(self, request):
 #         allEmployee = Employee.objects.all()
-#         return render(request, 'welcomepage.html', {'allEmployee' : allEmployee})
+#         return render(request, 'index.html', {'allEmployee' : allEmployee})
+
+
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                # employeeData =  Employee.objects.filter(user=request.user)
+                # employeeData = Employee.objects.filter(EMail=request.user.email)
+                allEmployee = Employee.objects.all()
+                return render(request, 'index.html', {'allEmployee': allEmployee})
+            else:
+                return render(request, 'login.html', {'error_message': 'Your account has been disabled'})
+        else:
+            return render(request, 'login.html', {'error_message': 'Invalid login'})
+    return render(request, 'login.html')
 
 
 class UserFormView(View):
@@ -92,8 +111,6 @@ class UserFormView(View):
                 if user.is_active:
 
                     login(request, user)
-                    #request.user.username
-                    # return redirect('welcomepage.html')
                     return redirect(login_user)
 
         return render(request, self.template_name, {'form': form})
