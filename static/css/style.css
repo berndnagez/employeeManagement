@@ -4,6 +4,12 @@
     margin: 0 auto;
 }
 
+.center {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
 #dataTable {
     border: 1px solid black;
     max-width: 400px;
