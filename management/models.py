@@ -29,17 +29,18 @@ class Employee(models.Model):
         if created:
             user.set_password(get_random_string())
             user.save()
+
+            # Creating the stuff for the email
+            request = HttpRequest()
+            request.META = request.META
+            request.META['SERVER_NAME'] = 'localhost'
+            request.META['SERVER_PORT'] = '8000'
+
+            reset_form = PasswordResetForm({'email': self.EMail})
+            assert reset_form.is_valid()
+            reset_form.save(
+                request=request,
+                subject_template_name='registration/password_reset_subject.txt',
+                email_template_name='registration/password_reset_email.html',
+            )
         super(Employee, self).save()
-
-        request = HttpRequest()
-        request.META = request.META
-        request.META['SERVER_NAME'] = 'localhost'
-        request.META['SERVER_PORT'] = '8000'
-
-        reset_form = PasswordResetForm({'email': self.EMail})
-        assert reset_form.is_valid()
-        reset_form.save(
-            request=request,
-            subject_template_name='registration/password_reset_subject.txt',
-            email_template_name='registration/password_reset_email.html',
-        )
