@@ -4,8 +4,8 @@ Content-Transfer-Encoding: 7bit
 Subject: password reset for employeeManagement
 From: webmaster@localhost
 To: max@mustermann.de
-Date: Mon, 25 Jun 2018 21:47:43 -0000
-Message-ID: <152996326301.15717.3549411524192419430@t420s>
+Date: Mon, 25 Jun 2018 22:26:28 -0000
+Message-ID: <152996558829.18629.1537628578169621563@t420s>
 
 
     Dear Max,
@@ -13,7 +13,7 @@ Message-ID: <152996326301.15717.3549411524192419430@t420s>
     to initiate the password reset process for your employeeManagement-Account,
     click the link below:
 
-    http://localhost:8000/reset/(%3FPMjQ%5B0-9A-Za-z_%5C-%5D+)/(%3FP4xc-e6cdd0a7d2588302dcf5%5B0-9A-Za-z%5D%7B1,13%7D-%5B0-9A-Za-z%5D%7B1,20%7D)
+    http://localhost:8000/reset/MjU/4xc-d5027e76a4a53ec67fe0/
 
     If clicking the link above doesn't work, please copy and paste the URL in a new browser
     window instead.
