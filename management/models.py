@@ -17,3 +17,11 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.Nachname + ', ' + self.Vorname + ' (ID: ' + str((self.id)) + ')'
+
+    # Overwirte the save-Method to add a user
+    def save(self):
+        user, created = User.objects.get_or_create(username=self.Vorname, email=self.EMail)
+        if created:
+            user.set_password('default')
+            user.save()
+        super(Employee, self).save()
