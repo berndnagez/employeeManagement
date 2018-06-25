@@ -129,5 +129,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Only during development
+# Sends E-Mails to the sent_emails-Directory
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

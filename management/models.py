@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.crypto import get_random_string
 from django.http import HttpRequest
 
 from django.contrib.auth.forms import PasswordResetForm
@@ -21,11 +22,11 @@ class Employee(models.Model):
     def __str__(self):
         return self.Nachname + ', ' + self.Vorname + ' (ID: ' + str((self.id)) + ')'
 
-    # Overwirte the save-Method to add a user
+    # Overwirte the save-Method to add a user and send him a mail with a PW-Reset-Link
     def save(self):
         user, created = User.objects.get_or_create(username=self.Vorname, email=self.EMail)
         if created:
-            user.set_password('default')
+            user.set_password(get_random_string())
             user.save()
         super(Employee, self).save()
 
