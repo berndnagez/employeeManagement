@@ -10,6 +10,10 @@
     margin: 0 auto;
 }
 
+#id_new_password1, #id_new_password2 {
+    margin-bottom: 10px;
+}
+
 #dataTable {
     border: 1px solid black;
     max-width: 400px;
