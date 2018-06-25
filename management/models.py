@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.crypto import get_random_string
 from django.http import HttpRequest
 
@@ -15,7 +16,7 @@ class Employee(models.Model):
     street = models.CharField(max_length=30, name='Straße')
     houseNum = models.IntegerField(name='Hausnummer')
     city = models.CharField(max_length=30, default='Hamburg', name='Stadt')
-    postCode = models.IntegerField(name='Postleitzahl')
+    postCode = models.IntegerField(name='Postleitzahl', validators=[MaxValueValidator(99999), MinValueValidator(10000)])
     overtime = models.IntegerField(default='0', name='Überstunden')
     leaveDays = models.IntegerField(default='30', name='Urlaub')
 
