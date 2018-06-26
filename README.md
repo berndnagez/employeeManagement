@@ -14,7 +14,7 @@ Die Website wurde mit Django 2.0.6 erstellt. Für die Templates kommt bootstrap 
 
 Am Backend können Angestellte angelegt und verwaltet werden.
 
-Dafür muss nächst ein Superuser erstellt werden:
+Dafür muss zunächst ein Superuser erstellt werden:
 
 ```
 $ python manage.py createsuperuser
@@ -42,7 +42,11 @@ der Geburtstag,
 
 die Straße,
 
+die Hausnummer,
+
 die Postleitzahl,
+
+der Wohnort,
 
 die geleisteten Überstunden sowie
 
@@ -61,13 +65,13 @@ Wenn sie angemeldet sind, können sie alle Daten einsehen, die zu ihrer Person g
 
 ## Besonderheiten
 
-Ein Schwerpunkt wurde auf ein ausgeklügeltes User-Managment gelegt. Das System sieht eine Anmeldung der User ausschließlich durch den Admin am Backend vor.
+Ein Schwerpunkt wurde auf ein ausgeklügeltes User-Managment gelegt. Das System sieht eine Registrierung der User ausschließlich durch den Admin am Backend vor.
 
-Wenn ein neuer Employee angelegt wurde, wird nicht nur automatisch ein User angelegt, sondern auch automatisch eine E-Mail vom System an die E-Mailadresse des neuen Employee geschickt.
+Wenn ein neuer Employee angelegt wurde, wird nicht nur automatisch ein zugehöriger User angelegt, sondern auch automatisch eine E-Mail vom System an die E-Mailadresse des neuen Employee geschickt.
  
 Diese E-Mail enthält einen Link, mit dem man sich einmal anmelden kann, um sein Passwort zu ändern.
 
-Zu Testzwecken findet sich in den letzten beiden Zeilen der <a href="https://github.com/berndnagez/employeeManagement/blob/master/employeeManagement/settings.py">settings.py</a> eine Konfiguration, die dafür sort, dass gesenden Mails im Ornder
+Zu Testzwecken findet sich in den beiden letzten Zeilen der <a href="https://github.com/berndnagez/employeeManagement/blob/master/employeeManagement/settings.py">settings.py</a> eine Konfiguration, die dafür sorgt, dass gesendete Mails im Ornder
 
 ```
 /sent_mails
