@@ -1,9 +1,25 @@
 from django.contrib import admin
-from management.models import Employee
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 
-# Register your models here.
+from .models import Employee
 
-admin.site.register(Employee)
 
-admin.site.site_header = "employeeManagement ";
-admin.site.site_title = "employeeManagement ";
+class EmployeeInline(admin.StackedInline):
+    model = Employee
+    can_delete = False
+    verbose_name_plural = 'Employee'
+    fk_name = 'user'
+
+
+class CustomUserAdmin(UserAdmin):
+    inlines = (EmployeeInline, )
+
+    def get_inline_instances(self, request, obj=None):
+        if not obj:
+            return list()
+        return super(CustomUserAdmin, self).get_inline_instances(request, obj)
+
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
