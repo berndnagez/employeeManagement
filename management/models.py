@@ -9,7 +9,7 @@ class Employee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     firstName = models.CharField(max_length=30, name='Vorname')
     name = models.CharField(max_length=30, name='Nachname')
-    email = models.EmailField(max_length=254, name='EMail', validators=[EmailValidator])
+    email = models.EmailField(max_length=254, name='EMail', validators=[EmailValidator], unique=True)
     birthDay = models.DateField(name='Geburtstag')
     street = models.CharField(max_length=30, name='Straße')
     houseNum = models.CharField(name='Hausnummer', max_length=4)
